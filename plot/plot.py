@@ -13,7 +13,7 @@ def gen_path(base: str, state: int, vdc: float, cycle: int) -> str:
     return os.path.join(base, "state_{}".format(state), "vdc_{}".format(vdc), "cycle_{}".format(cycle), "data.csv")
 
 
-def read_data(path: str) -> Union[list[float], list[float], list[float]]:
+def read_data(path: str) -> Union[list, list, list]:
     xl, y1l, y2l = list(), list(), list()
     with open(path) as csvfile:
         reader = csv.DictReader(csvfile, quoting=csv.QUOTE_MINIMAL)

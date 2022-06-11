@@ -52,9 +52,8 @@ def is_float(s: str) -> bool:
         return False
 
 
-def process_row(row: dict[str]):
+def process_row(row: dict):
     for k, v in row.items():
-        v = str(v)
         if not is_float(v):
             # invalid data or blank in the table
             continue
@@ -80,7 +79,7 @@ def check_length():
                 raise RuntimeError("mismatch data length in `state={}, vdc={}' between vpulse and i10 ({}!={})".format(state, vdc, len(value_list), len(i10_data[state][vdc])))
 
 
-def split_cycle(state: int, vdc: float) -> list[int]:
+def split_cycle(state: int, vdc: float) -> list:
     v_list, i9_list, i10_list = v_data[state][vdc], i9_data[state][vdc], i10_data[state][vdc]
     non_zero_flag = False
     cycle_start_idx = [0]
